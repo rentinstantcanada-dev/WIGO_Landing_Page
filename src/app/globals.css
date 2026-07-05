@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-cream: #f5f1e8;
+  --color-cream-2: #ece5d6;
+  --color-ink: #1c1c1c;
+  --color-ink-2: #2a2a2a;
+  --color-brand: #f0392b;
+  --color-brand-dark: #c92a1e;
+  --color-muted: #6f675e;
+  --font-sans: var(--font-jakarta), "Segoe UI", sans-serif;
+  --font-script: var(--font-caveat), cursive;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+/* ---------- dotted paper texture ---------- */
+.dot-grid {
+  background-image: radial-gradient(rgba(28, 28, 28, 0.07) 1.1px, transparent 1.1px);
+  background-size: 26px 26px;
+}
+
+/* ---------- outlined display text ---------- */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-ink);
+}
+
+/* ---------- marquee ---------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+.marquee-band:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* ---------- gentle float ---------- */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-y 7s ease-in-out 1s infinite;
+}
+
+/* ---------- route energy flow ---------- */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -64; }
+}
+.route-flow {
+  stroke-dasharray: 4 28;
+  animation: dash-flow 1.6s linear infinite;
+}
+
+/* ---------- route draw-in ---------- */
+@keyframes draw-in {
+  to { stroke-dashoffset: 0; }
+}
+.route-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-in 2.4s ease-out 0.3s forwards;
+}
+
+/* ---------- pin ripple ---------- */
+@keyframes ripple {
+  0%   { transform: scale(0.5); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.pin-ripple {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ripple 2s ease-out infinite;
+}
+
+/* ---------- pin drop bounce ---------- */
+@keyframes pin-drop {
+  0%   { transform: translateY(-40px); opacity: 0; }
+  60%  { transform: translateY(6px); opacity: 1; }
+  80%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+.pin-drop {
+  animation: pin-drop 0.7s cubic-bezier(0.2, 0.8, 0.3, 1.2) both;
+}
+
+/* ---------- CTA shine sweep ---------- */
+@keyframes shine {
+  0%   { transform: translateX(-120%) skewX(-20deg); }
+  60%, 100% { transform: translateX(220%) skewX(-20deg); }
+}
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shine 3.2s ease-in-out infinite;
+}
+
+/* ---------- wiggle (GO block) ---------- */
+@keyframes wiggle {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  90%  { transform: rotate(-3deg); }
+  93%  { transform: rotate(3deg); }
+  96%  { transform: rotate(-2deg); }
+}
+.animate-wiggle {
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+/* ---------- blob breathing ---------- */
+@keyframes breathe {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  50%      { transform: scale(1.15) translate(10px, -14px); }
+}
+.animate-breathe {
+  animation: breathe 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
