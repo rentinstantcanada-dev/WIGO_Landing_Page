@@ -15,6 +15,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.wigoride.in"),
   title: "WIGO — Where I Go | Your ride, your way",
   description:
     "WIGO is the vehicle-agnostic ride app. Bikes, scooters, autos, cars & vans — any place, any time, any ride, any comfort. Scan the QR and go.",
@@ -22,7 +23,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "WIGO — Where I Go",
     description: "Your ride, your way. Any place. Any time. Any ride. Any comfort.",
+    url: "https://www.wigoride.in",
+    siteName: "WIGO",
     type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WIGO — Where I Go",
+    description: "Your ride, your way. Any place. Any time. Any ride. Any comfort.",
   },
 };
 
