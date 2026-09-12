@@ -157,3 +157,64 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* ---------- legal / support page prose ----------
+   These pages are read end to end (by users and by store reviewers), so they
+   get generous line-height and clear heading separation rather than the
+   marketing page's tighter display styling. */
+.legal-body h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.legal-body h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.legal-body p,
+.legal-body li {
+  line-height: 1.75;
+  color: rgba(28, 28, 28, 0.82);
+}
+.legal-body p {
+  margin-bottom: 1rem;
+}
+.legal-body ul {
+  margin: 0 0 1.25rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.legal-body li {
+  margin-bottom: 0.5rem;
+}
+.legal-body a {
+  color: var(--color-brand);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-body strong {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.legal-body table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.legal-body th,
+.legal-body td {
+  border: 1px solid rgba(28, 28, 28, 0.12);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.legal-body th {
+  background: var(--color-cream-2);
+  font-weight: 700;
+}

@@ -15,7 +15,18 @@ export const site = {
   appStoreUrl: "https://apps.apple.com/app/wigo",
   androidReady: true, // Play listing exists (pre-registration)
   iosReady: false, // App Store listing not published yet
-  supportEmail: "hello@wigo.app",
+  supportEmail: "bandibannu773@gmail.com",
+};
+
+/**
+ * Legal identity used by /privacy, /support and /delete-account.
+ * `legalEntity` must match the App Store / Play Store seller name, and
+ * `policyUpdated` is shown to users — bump it whenever the policy text changes.
+ */
+export const legal = {
+  entity: "Rent Instant Inc.",
+  jurisdiction: "India",
+  policyUpdated: "23 August 2026",
 };
 
 /** Pre-launch stats — promises, not fabricated traction. */
